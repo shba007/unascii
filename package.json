@@ -1,0 +1,47 @@
+{
+  "name": "unascii",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shba007/unascii.git"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "unascii": "./bin/unascii.mjs"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "engines": {
+    "node": "^20.15.0"
+  },
+  "scripts": {
+    "dev": "vitest dev",
+    "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
+    "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
+    "unascii": "jiti ./scripts/unascii.mjs"
+  },
+  "dependencies": {
+    "citty": "^0.1.6",
+    "consola": "^3.2.3",
+    "pathe": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "eslint": "^8.57.1",
+    "eslint-config-unjs": "^0.3.2",
+    "jiti": "^1.21.6",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "unbuild": "^2.0.0",
+    "vitest": "^2.1.1"
+  }
+}
