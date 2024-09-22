@@ -1,20 +1,29 @@
 {
   "name": "unascii",
-  "description": "",
   "version": "0.0.0",
+  "description": "print image in ascii anywhere browser or cli",
+  "repository": "unjs/unascii",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shba007/unascii.git"
-  },
-  "keywords": [],
   "license": "MIT",
+  "sideEffects": false,
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./cli": {
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.mjs",
+      "require": "./dist/cli.cjs"
+    }
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "unascii": "./bin/unascii.mjs"
+    "unascii": "./dist/cli.mjs"
   },
   "files": [
     "dist",
@@ -24,24 +33,34 @@
     "node": "^20.15.0"
   },
   "scripts": {
+    "build": "unbuild",
     "dev": "vitest dev",
-    "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
-    "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
+    "lint": "eslint . && prettier -c .",
+    "lint:fix": "automd && eslint . --fix && prettier -w .",
+    "prepack": "pnpm build",
+    "play": "jiti playground",
+    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+    "test": "pnpm lint && pnpm test:types && vitest run --coverage",
+    "test:types": "tsc --noEmit --skipLibCheck",
     "unascii": "jiti ./scripts/unascii.mjs"
   },
   "dependencies": {
+    "canvas": "^2.11.2",
+    "chalk": "^5.3.0",
     "citty": "^0.1.6",
     "consola": "^3.2.3",
     "pathe": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^22.5.5",
+    "@vitest/coverage-v8": "^2.1.1",
+    "changelogen": "^0.5.7",
     "eslint": "^8.57.1",
     "eslint-config-unjs": "^0.3.2",
     "jiti": "^1.21.6",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
-    "unbuild": "^2.0.0",
+    "unbuild": "^3.0.0-rc.7",
     "vitest": "^2.1.1"
   }
 }

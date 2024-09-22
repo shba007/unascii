@@ -3,3 +3,14 @@ dist
 
 # Node dependencies
 node_modules
+
+# Temporary Files
+temp
+
+# MISC
+coverage
+.vscode
+.DS_Store
+.eslintcache
+*.log*
+*.env*
