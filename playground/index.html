@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Playground</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 8px;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		main {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-items: center;
+			width: 100%;
+			height: 100%;
+		}
+
+		pre {
+			position: relative;
+			width: fit-content;
+			height: fit-content;
+			background-color: #000;
+			transform-origin: top;
+			scale: 0.15;
+		}
+	</style>
+	<script>
+		const process = { env: { BROWSER: true } }
+	</script>
+	<script type="module" defer src="./dist/index.mjs"></script>
+	<script type="module" defer>
+		import { asciiPrint } from "./dist/index.mjs";
+
+		const main = document.querySelector('main')
+		const pre = document.querySelector('pre')
+		const form = document.querySelector('form');
+
+		form.addEventListener('submit', onRender);
+
+		async function onRender(event) {
+			event.preventDefault();
+			const data = new FormData(event.target);
+
+			const args = {
+				path: data.get('url'),
+				size: data.get('size') ?? 100,
+				output: 'dom',
+				widthSkew: '2.25',
+				characters: 'alphanumeric',
+			}
+
+			const print = await asciiPrint({
+				path: args.path,
+				size: args.size,
+				output: args.output,
+				widthSkew: parseFloat(args.widthSkew),
+				characters: args.characters,
+				grayscale: false
+			})
+
+			const image = await print.getImage()
+			pre.innerHTML = image
+
+			main?.appendChild(pre)
+		}
+	</script>
+</head>
+
+<body>
+	<main>
+		<form>
+			<input name="url" type="text" placeholder="url">
+			<input name="size" type="number" placeholder="size">
+			<button type="submit">Render</button>
+		</form>
+		<pre></pre>
+	</main>
+</body>
+
+</html>

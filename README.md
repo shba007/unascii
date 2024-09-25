@@ -19,19 +19,19 @@ Install package:
 
 ```sh
 # ✨ Auto-detect
-npx nypm install packageName
+npx nypm install unascii
 
 # npm
-npm install packageName
+npm install unascii
 
 # yarn
-yarn add packageName
+yarn add unascii
 
 # pnpm
-pnpm install packageName
+pnpm install unascii
 
 # bun
-bun install packageName
+bun install unascii
 ```
 
 <!-- /automd -->
@@ -43,19 +43,19 @@ Import:
 **ESM** (Node.js, Bun)
 
 ```js
-import {} from "pkg";
+import {} from "unascii";
 ```
 
 **CommonJS** (Legacy Node.js)
 
 ```js
-const {} = require("pkg");
+const {} = require("unascii");
 ```
 
 **CDN** (Deno, Bun and Browsers)
 
 ```js
-import {} from "https://esm.sh/pkg";
+import {} from "https://esm.sh/unascii";
 ```
 
 <!-- /automd -->

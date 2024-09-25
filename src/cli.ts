@@ -1,8 +1,15 @@
 import { defineCommand, runMain as _runMain } from 'citty'
 import consola from 'consola'
+import { createStorage } from "unstorage";
+import fsDriver from "unstorage/drivers/fs";
+
 import { name, description, version } from '../package.json'
-import { asciiPrint } from './print'
+import { asciiPrint, OutputType } from './print'
 import { ASCIICharacterSet } from './utils'
+
+const storage = createStorage({
+  driver: fsDriver({ base: '.' }),
+});
 
 export const print = defineCommand({
   meta: {
@@ -22,7 +29,8 @@ export const print = defineCommand({
     output: {
       type: 'string',
       description: 'Output as file or console',
-      valueHint: 'console|file',
+      valueHint: 'console|file|dom',
+      default: 'console'
     },
     characters: {
       type: 'string',
@@ -34,6 +42,12 @@ export const print = defineCommand({
       description: 'Output as grayscale or color only works with console',
       valueHint: 'true|false',
     },
+    verbose: {
+      type: 'boolean',
+      description: 'Verbose Output',
+      valueHint: 'true|false',
+      default: false
+    }
   },
   async run({ args }) {
     if (args.verbose) {
@@ -42,11 +56,19 @@ export const print = defineCommand({
 
     const print = await asciiPrint({
       path: args.path,
-      size: parseInt(args.size),
-      output: args.output as 'console' | 'file',
+      size: Number.parseInt(args.size),
+      output: args.output as unknown as OutputType,
       characters: args.characters as unknown as ASCIICharacterSet,
       grayscale: args.grayscale
     })
+
+    const image = await print.getImage()
+    if (args.output === 'console') {
+      consola.info(image)
+    } else if (args.output === 'file') {
+      const outputPath = './temp' + args.path
+      await storage.setItem(outputPath, image)
+    }
 
     if (!print) {
       consola.log('Print not started.')
