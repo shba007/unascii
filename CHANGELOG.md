@@ -1,5 +1,11 @@
 # unascii
 
+## 0.2.0
+
+### Minor Changes
+
+- 8065761: refactor: asciiPrint path argument made positional, subcommend moved, test added, docs updated
+
 ## 0.1.1
 
 ### Patch Changes
