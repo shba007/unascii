@@ -1,11 +1,9 @@
 // import { env, node } from "unenv";
-// import chalk from 'chalk'
 import { ASCIICharacterSet, asciiCharacterSet, rgbToHex } from './utils'
 
 export type OutputType = 'console' | 'file' | 'dom'
 
 export interface PrintOptions {
-  path: string
   width?: number
   widthSkew?: number
   widthScale?: number
@@ -47,14 +45,18 @@ async function loadFunctions() {
     loadImage = loadImageBrowser
     colorizer = (color, char, output) => (output === 'console' ? char : `<span style="color: ${color}">${char}</span>`)
   } else {
-    const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import('canvas', { with: { type: 'js' } })
-    const { Chalk } = await import('chalk', { with: { type: 'js' } })
+    try {
+      const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import('canvas')
+      const { Chalk } = await import('chalk')
 
-    createCanvas = createCanvasNode as unknown as typeof createCanvas
-    loadImage = loadImageNode as unknown as typeof loadImage
+      createCanvas = createCanvasNode as unknown as typeof createCanvas
+      loadImage = loadImageNode as unknown as typeof loadImage
 
-    const chalk = new Chalk()
-    colorizer = (color, char, output) => (output === 'console' ? chalk.hex(color)(char) : char)
+      const chalk = new Chalk()
+      colorizer = (color, char, output) => (output === 'console' ? chalk.hex(color)(char) : char)
+    } catch {
+      throw new Error('Unable to import canvas/chalk modules')
+    }
   }
 }
 
@@ -116,8 +118,8 @@ async function imagePathToASCII(imagePath: string, width: number, widthSkew: num
   return data
 }
 
-export async function asciiPrint(opts: PrintOptions): Promise<Print> {
-  const { path: imagePath, width = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts
+export async function asciiPrint(imagePath: string, opts?: PrintOptions): Promise<Print> {
+  const { width = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts ?? {}
   await loadFunctions()
 
   console.time('imagePathToASCII')

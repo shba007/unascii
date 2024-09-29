@@ -1,3 +1,5 @@
-import { test } from '../src'
+import { asciiPrint } from '../src'
 
-console.log(test())
+const print = await asciiPrint(`./temp/logo-2.png`, { width: 48, output: 'console' })
+
+console.log(await print.getImage())

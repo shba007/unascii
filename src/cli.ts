@@ -11,31 +11,33 @@ const storage = createStorage({
   driver: fsDriver({ base: '.' }),
 })
 
-export const print = defineCommand({
+export const main = defineCommand({
   meta: {
-    name: 'print',
-    description: 'Print Image to Console',
+    name,
+    description,
+    version,
   },
   args: {
     path: {
       type: 'positional',
       description: 'Path of the image',
-      required: false,
+      required: true,
     },
     width: {
       type: 'string',
       description: 'Width of the image',
+      default: '32',
     },
     output: {
       type: 'string',
       description: 'Output as file or console',
-      valueHint: 'console|file|dom',
+      valueHint: 'console|file',
       default: 'console',
     },
     characters: {
       type: 'string',
       description: 'Output Character Set',
-      valueHint: 'minimalist|normal|normal2|alphabetic|alphanumeric|numerical|extended|math|arrow|grayscale|max|codepage437|blockelement',
+      valueHint: `minimalist|normal|normal2|alphabetic|alphanumeric|numerical|extended|math|arrow|grayscale|max|codepage437|blockelement`,
     },
     grayscale: {
       type: 'boolean',
@@ -54,8 +56,7 @@ export const print = defineCommand({
       process.env.DEBUG = process.env.DEBUG || 'true'
     }
 
-    const print = await asciiPrint({
-      path: args.path,
+    const print = await asciiPrint(args.path, {
       width: args.width ? (Number.parseInt(args.width) ?? undefined) : undefined,
       output: args.output as unknown as OutputType,
       characters: args.characters as unknown as ASCIICharacterSet,
@@ -71,24 +72,13 @@ export const print = defineCommand({
     }
 
     if (!print) {
-      consola.log('Print not started.')
+      consola.error('Print not started.')
       // eslint-disable-next-line unicorn/no-process-exit
       process.exit(1)
     }
 
     // consola.info('Printing to console...\n');
     // consola.success(`\`${await print.getImage()}\``);
-  },
-})
-
-export const main = defineCommand({
-  meta: {
-    name,
-    description,
-    version,
-  },
-  subCommands: {
-    print,
   },
 })
 

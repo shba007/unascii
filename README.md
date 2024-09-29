@@ -1,26 +1,36 @@
 # unascii
 
-<!-- automd:badges color=yellow -->
+<!-- automd:badges color=blue -->
 
-> Print any image in ascii anywhere (browser/cli)
-
-[![npm version](https://img.shields.io/npm/v/unascii?color=blue)](https://npmjs.com/package/packageName)
-[![npm downloads](https://img.shields.io/npm/dm/unascii?color=blue)](https://npmjs.com/package/packageName)
-[![License](https://img.shields.io/npm/l/unascii?color=blue)](https://github.com/shba007/framework-logo?tab=MIT-1-ov-file)
+[![npm version](https://img.shields.io/npm/v/unascii?color=blue)](https://npmjs.com/package/unascii)
+[![npm downloads](https://img.shields.io/npm/dm/unascii?color=blue)](https://npmjs.com/package/unascii)
+[![License](https://img.shields.io/npm/l/unascii?color=blue)](https://github.com/shba007/unascii?tab=MIT-1-ov-file)
 
 <!-- /automd -->
 
-This is my package description.
+> Print any image in ascii anywhere (browser/cli)
 
 ## Usage (CLI)
 
-Globally run print with `npx`:
+Globally run unascii with `npx`:
 
 ```sh
-npx unascii@latest print ./file/path.jpg
+npx unascii@latest ./file/path.jpg
 ```
 
-Use `npx unascii print --help` for more usage info.
+or
+
+```sh
+npx unascii@latest ./file/path.jpg --width=50
+```
+
+    Options:
+    --width Width of the image
+    --output <console|file> Output as file or console
+    --characters <minimalist|normal|normal2|alphabetic|alphanumeric|numerical|extended|math|arrow|grayscale|max|codepage437|blockelement> Output Character Set
+    --grayscale <true|false> Output as grayscale or color only works with console
+
+Use `npx unascii --help` for more usage info.
 
 ## Usage (API)
 
@@ -89,11 +99,11 @@ import {} from 'https://esm.sh/unascii'
 
 <!-- automd:contributors license=MIT -->
 
-Published under the [MIT](https://github.com/unjs/packageName/blob/main/LICENSE) license.
-Made by [community](https://github.com/unjs/packageName/graphs/contributors) 💛
+Published under the [MIT](https://github.com/shba007/unascii/blob/main/LICENSE) license.
+Made by [community](https://github.com/shba007/unascii/graphs/contributors) 💛
 <br><br>
-<a href="https://github.com/unjs/packageName/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=unjs/packageName" />
+<a href="https://github.com/shba007/unascii/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=shba007/unascii" />
 </a>
 
 <!-- /automd -->
