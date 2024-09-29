@@ -1,4 +1,4 @@
-export type ASCIICharacterSet = keyof typeof asciiCharacterSet;
+export type ASCIICharacterSet = keyof typeof asciiCharacterSet
 
 export const asciiCharacterSet = {
   minimalist: '#+-.',

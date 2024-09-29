@@ -6,7 +6,7 @@ export type OutputType = 'console' | 'file' | 'dom'
 
 export interface PrintOptions {
   path: string
-  size?: number
+  width?: number
   widthSkew?: number
   widthScale?: number
   output?: OutputType
@@ -45,16 +45,16 @@ async function loadFunctions() {
 
     createCanvas = createCanvasBrowser
     loadImage = loadImageBrowser
-    colorizer = (color, char, output) => (output === 'console') ? char : `<span style="color: ${color}">${char}</span>`
+    colorizer = (color, char, output) => (output === 'console' ? char : `<span style="color: ${color}">${char}</span>`)
   } else {
-    const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import("canvas", { with: { type: "js" } })
-    const { Chalk } = await import("chalk", { with: { type: "js" } })
+    const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import('canvas', { with: { type: 'js' } })
+    const { Chalk } = await import('chalk', { with: { type: 'js' } })
 
     createCanvas = createCanvasNode as unknown as typeof createCanvas
     loadImage = loadImageNode as unknown as typeof loadImage
 
     const chalk = new Chalk()
-    colorizer = (color, char, output) => (output === 'console') ? chalk.hex(color)(char) : char
+    colorizer = (color, char, output) => (output === 'console' ? chalk.hex(color)(char) : char)
   }
 }
 
@@ -99,9 +99,9 @@ function imageDataToASCII(imageData: ImageData, widthScale: number, characterSet
 }
 
 async function imagePathToASCII(imagePath: string, width: number, widthSkew: number, widthScale: number, characterSet: ASCIICharacterSet, isGrayscale: boolean, outputType: OutputType) {
-  console.time("loadImage")
+  console.time('loadImage')
   const image = await loadImage(imagePath)
-  console.timeEnd("loadImage")
+  console.timeEnd('loadImage')
   const aspectRatio = image.width / image.height
   const canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio))
 
@@ -109,20 +109,20 @@ async function imagePathToASCII(imagePath: string, width: number, widthSkew: num
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
 
-  console.time("imageDataToASCII")
+  console.time('imageDataToASCII')
   const data = imageDataToASCII(imageData, widthScale, characterSet, isGrayscale, outputType)
-  console.timeEnd("imageDataToASCII")
+  console.timeEnd('imageDataToASCII')
 
   return data
 }
 
 export async function asciiPrint(opts: PrintOptions): Promise<Print> {
-  const { path: imagePath, size = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts
+  const { path: imagePath, width = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts
   await loadFunctions()
 
-  console.time("imagePathToASCII")
-  const image = await imagePathToASCII(imagePath, size, widthSkew, widthScale, characters, grayscale, output)
-  console.timeEnd("imagePathToASCII")
+  console.time('imagePathToASCII')
+  const image = await imagePathToASCII(imagePath, width, widthSkew, widthScale, characters, grayscale, output)
+  console.timeEnd('imagePathToASCII')
 
   return {
     getImage: async () => image,

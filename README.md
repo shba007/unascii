@@ -4,8 +4,11 @@ npm i -D automd
 
 <!-- automd:badges color=yellow -->
 
-[![npm version](https://img.shields.io/npm/v/packageName?color=yellow)](https://npmjs.com/package/packageName)
-[![npm downloads](https://img.shields.io/npm/dm/packageName?color=yellow)](https://npmjs.com/package/packageName)
+> Print any image in ascii anywhere (browser/cli)
+
+[![npm version](https://img.shields.io/npm/v/unascii?color=blue)](https://npmjs.com/package/packageName)
+[![npm downloads](https://img.shields.io/npm/dm/unascii?color=blue)](https://npmjs.com/package/packageName)
+[![License](https://img.shields.io/npm/l/unascii?color=blue)](https://github.com/shba007/framework-logo?tab=MIT-1-ov-file)
 
 <!-- /automd -->
 
@@ -43,19 +46,19 @@ Import:
 **ESM** (Node.js, Bun)
 
 ```js
-import {} from "unascii";
+import {} from 'unascii'
 ```
 
 **CommonJS** (Legacy Node.js)
 
 ```js
-const {} = require("unascii");
+const {} = require('unascii')
 ```
 
 **CDN** (Deno, Bun and Browsers)
 
 ```js
-import {} from "https://esm.sh/unascii";
+import {} from 'https://esm.sh/unascii'
 ```
 
 <!-- /automd -->

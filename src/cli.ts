@@ -1,7 +1,7 @@
-import { defineCommand, runMain as _runMain } from 'citty'
+import { defineCommand, runMain } from 'citty'
 import consola from 'consola'
-import { createStorage } from "unstorage";
-import fsDriver from "unstorage/drivers/fs";
+import { createStorage } from 'unstorage'
+import fsDriver from 'unstorage/drivers/fs'
 
 import { name, description, version } from '../package.json'
 import { asciiPrint, OutputType } from './print'
@@ -9,7 +9,7 @@ import { ASCIICharacterSet } from './utils'
 
 const storage = createStorage({
   driver: fsDriver({ base: '.' }),
-});
+})
 
 export const print = defineCommand({
   meta: {
@@ -22,15 +22,15 @@ export const print = defineCommand({
       description: 'Path of the image',
       required: false,
     },
-    size: {
+    width: {
       type: 'string',
-      description: 'Size of the image',
+      description: 'Width of the image',
     },
     output: {
       type: 'string',
       description: 'Output as file or console',
       valueHint: 'console|file|dom',
-      default: 'console'
+      default: 'console',
     },
     characters: {
       type: 'string',
@@ -46,25 +46,25 @@ export const print = defineCommand({
       type: 'boolean',
       description: 'Verbose Output',
       valueHint: 'true|false',
-      default: false
-    }
+      default: false,
+    },
   },
   async run({ args }) {
     if (args.verbose) {
-      process.env.DEBUG = process.env.DEBUG || "true";
+      process.env.DEBUG = process.env.DEBUG || 'true'
     }
 
     const print = await asciiPrint({
       path: args.path,
-      size: Number.parseInt(args.size),
+      width: args.width ? (Number.parseInt(args.width) ?? undefined) : undefined,
       output: args.output as unknown as OutputType,
       characters: args.characters as unknown as ASCIICharacterSet,
-      grayscale: args.grayscale
+      grayscale: args.grayscale,
     })
 
     const image = await print.getImage()
     if (args.output === 'console') {
-      consola.info(image)
+      consola.info('\n' + image)
     } else if (args.output === 'file') {
       const outputPath = './temp' + args.path
       await storage.setItem(outputPath, image)
@@ -92,4 +92,4 @@ export const main = defineCommand({
   },
 })
 
-export const runMain = () => _runMain(main)
+runMain(main)
