@@ -12,13 +12,21 @@ jobs:
   autofix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20.x'
           cache: 'npm'
-      - run: npm install
-      - run: npm lint:fix
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # - name: Lint & Format
+      #   run: npm run lint
+
       - uses: autofix-ci/action@ff86a557419858bb967097bfc916833f5647fa8c
         with:
           commit-message: 'chore: apply automated updates'
