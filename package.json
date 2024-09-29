@@ -40,7 +40,7 @@
     "lint": "eslint . && prettier -c .",
     "lint:fix": "eslint . --fix && prettier -w .",
     "build": "unbuild",
-    "prepack": "npm build",
+    "prepack": "npm run build",
     "play": "jiti playground",
     "release": "npm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "npm lint && npm test:types && vitest run --coverage",
