@@ -1,7 +1,5 @@
 # unascii
 
-npm i -D automd
-
 <!-- automd:badges color=yellow -->
 
 > Print any image in ascii anywhere (browser/cli)
@@ -14,7 +12,17 @@ npm i -D automd
 
 This is my package description.
 
-## Usage
+## Usage (CLI)
+
+Globally run print with `npx`:
+
+```sh
+npx unascii@latest print ./file/path.jpg
+```
+
+Use `npx unascii print --help` for more usage info.
+
+## Usage (API)
 
 Install package:
 

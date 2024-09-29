@@ -1,4 +1,4 @@
-import { defineCommand, runMain } from 'citty'
+import { defineCommand, runMain as _runMain } from 'citty'
 import consola from 'consola'
 import { createStorage } from 'unstorage'
 import fsDriver from 'unstorage/drivers/fs'
@@ -92,4 +92,4 @@ export const main = defineCommand({
   },
 })
 
-runMain(main)
+export const runMain = () => _runMain(main)

@@ -23,7 +23,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "unascii": "./dist/cli.mjs"
+    "unascii": "./bin/unascii.mjs"
   },
   "files": [
     "dist",
@@ -45,7 +45,8 @@
     "release": "npm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "npm lint && npm test:types && vitest run --coverage",
     "test:types": "tsc --noEmit --skipLibCheck",
-    "unascii": "jiti ./src/cli"
+    "unascii:old": "node bin/unascii.mjs",
+    "unascii": "jiti ./src/cli.ts"
   },
   "dependencies": {
     "canvas": "^2.11.2",
