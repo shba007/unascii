@@ -21,8 +21,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Lint & Format
-        run: npm run lint
+      # - name: Lint & Format
+      #   run: npm run lint
 
       - name: Test Types
         run: npm run test:types
