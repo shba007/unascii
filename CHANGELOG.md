@@ -1,5 +1,11 @@
 # unascii
 
+## 0.2.1
+
+### Patch Changes
+
+- ff8523c: fix: printing to file fixed
+
 ## 0.2.0
 
 ### Minor Changes

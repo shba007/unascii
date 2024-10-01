@@ -1,6 +1,6 @@
 {
   "name": "unascii",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Print any image in ascii anywhere (browser/cli)",
   "repository": "shba007/unascii",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
