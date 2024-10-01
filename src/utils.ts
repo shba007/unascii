@@ -30,3 +30,9 @@ export function rgbToHex({ r, g, b }: { r: number; g: number; b: number }) {
   // Combine the components and return the result
   return `#${redHex}${greenHex}${blueHex}`
 }
+
+export function isURL(str: string) {
+  const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+
+  return urlPattern.test(str)
+}

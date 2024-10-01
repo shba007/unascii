@@ -86,7 +86,6 @@ function imageDataToASCII(imageData: ImageData, widthScale: number, characterSet
       const brightness = 0.3 * r + 0.59 * g + 0.11 * b
       let char = getAsciiChar(brightness, widthScale, characterSet)
 
-      // if (!isGrayscale) char = chalk.hex(rgbToHex({ r, g, b }))(char)
       if (!isGrayscale) {
         const hexColor = rgbToHex({ r, g, b })
         char = colorizer(hexColor, char, outputType)
@@ -101,9 +100,9 @@ function imageDataToASCII(imageData: ImageData, widthScale: number, characterSet
 }
 
 async function imagePathToASCII(imagePath: string, width: number, widthSkew: number, widthScale: number, characterSet: ASCIICharacterSet, isGrayscale: boolean, outputType: OutputType) {
-  console.time('loadImage')
+  if (process.env.DEBUG) console.time('loadImage')
   const image = await loadImage(imagePath)
-  console.timeEnd('loadImage')
+  if (process.env.DEBUG) console.timeEnd('loadImage')
   const aspectRatio = image.width / image.height
   const canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio))
 
@@ -111,9 +110,9 @@ async function imagePathToASCII(imagePath: string, width: number, widthSkew: num
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
 
-  console.time('imageDataToASCII')
+  if (process.env.DEBUG) console.time('imageDataToASCII')
   const data = imageDataToASCII(imageData, widthScale, characterSet, isGrayscale, outputType)
-  console.timeEnd('imageDataToASCII')
+  if (process.env.DEBUG) console.timeEnd('imageDataToASCII')
 
   return data
 }
@@ -122,9 +121,9 @@ export async function asciiPrint(imagePath: string, opts?: PrintOptions): Promis
   const { width = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts ?? {}
   await loadFunctions()
 
-  console.time('imagePathToASCII')
+  if (process.env.DEBUG) console.time('imagePathToASCII')
   const image = await imagePathToASCII(imagePath, width, widthSkew, widthScale, characters, grayscale, output)
-  console.timeEnd('imagePathToASCII')
+  if (process.env.DEBUG) console.timeEnd('imagePathToASCII')
 
   return {
     getImage: async () => image,

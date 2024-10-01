@@ -1,11 +1,12 @@
 import { defineCommand, runMain as _runMain } from 'citty'
 import consola from 'consola'
+import pathe from 'pathe'
 import { createStorage } from 'unstorage'
 import fsDriver from 'unstorage/drivers/fs'
 
 import { name, description, version } from '../package.json'
 import { asciiPrint, OutputType } from './print'
-import { ASCIICharacterSet } from './utils'
+import { ASCIICharacterSet, isURL } from './utils'
 
 const storage = createStorage({
   driver: fsDriver({ base: '.' }),
@@ -67,7 +68,7 @@ export const main = defineCommand({
     if (args.output === 'console') {
       consola.info('\n' + image)
     } else if (args.output === 'file') {
-      const outputPath = './temp' + args.path
+      const outputPath = pathe.format({ name: isURL(args.path) ? args.path.split('/').at(-1)?.split('.')[0] : pathe.parse(args.path).name, root: '/', ext: '.txt' })
       await storage.setItem(outputPath, image)
     }
 
