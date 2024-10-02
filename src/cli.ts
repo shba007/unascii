@@ -29,6 +29,11 @@ export const main = defineCommand({
       description: 'Width of the image',
       default: '32',
     },
+    widthSkew: {
+      type: 'string',
+      description: 'Width Skew of the image',
+      default: '1.75',
+    },
     output: {
       type: 'string',
       description: 'Output as file or console',
@@ -59,6 +64,7 @@ export const main = defineCommand({
 
     const print = await asciiPrint(args.path, {
       width: args.width ? (Number.parseInt(args.width) ?? undefined) : undefined,
+      widthSkew: args.widthSkew ? (Number.parseFloat(args.widthSkew) ?? undefined) : undefined,
       output: args.output as unknown as OutputType,
       characters: args.characters as unknown as ASCIICharacterSet,
       grayscale: args.grayscale,

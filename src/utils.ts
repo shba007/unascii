@@ -32,7 +32,7 @@ export function rgbToHex({ r, g, b }: { r: number; g: number; b: number }) {
 }
 
 export function isURL(str: string) {
-  const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+  const urlPattern = /^(https?:\/\/)?([\d.a-z-]+)\.([.a-z]{2,6})([\w ./-]*)*\/?$/
 
   return urlPattern.test(str)
 }

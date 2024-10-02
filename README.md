@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./public/logo.png" lt="Logo" width="192" />
+<p>
+
 # unascii
 
 <!-- automd:badges color=blue -->
@@ -26,6 +30,7 @@ npx unascii@latest ./file/path.jpg --width=50
 
     Options:
     --width Width of the image
+    --widthSkew Width Skew of the image
     --output <console|file> Output as file or console
     --characters <minimalist|normal|normal2|alphabetic|alphanumeric|numerical|extended|math|arrow|grayscale|max|codepage437|blockelement> Output Character Set
     --grayscale <true|false> Output as grayscale or color only works with console
