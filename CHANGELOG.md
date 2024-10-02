@@ -1,5 +1,11 @@
 # unascii
 
+## 0.2.2
+
+### Patch Changes
+
+- 8c7f734: feat: widthSkew added to the cli
+
 ## 0.2.1
 
 ### Patch Changes
