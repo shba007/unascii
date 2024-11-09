@@ -1,0 +1,37 @@
+{
+  "name": "unascii",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint . --fix",
+    "format": "prettier .  --write",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@tsconfig/svelte": "^5.0.4",
+    "autoprefixer": "^10.4.20",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.46.0",
+    "globals": "^15.11.0",
+    "postcss": "^8.4.47",
+    "prettier-plugin-svelte": "^3.2.7",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "svelte": "^5.0.3",
+    "svelte-check": "^4.0.5",
+    "tailwindcss": "^3.4.14",
+    "tslib": "^2.8.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
+  },
+  "dependencies": {
+    "@svelte-use/core": "^0.11.0",
+    "unascii": "latest"
+  }
+}

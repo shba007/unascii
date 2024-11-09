@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/logo.png" lt="Logo" width="192" />
+  <img src="./public/logo.png" lt="Logo" width="128" />
 <p>
 
 # unascii
