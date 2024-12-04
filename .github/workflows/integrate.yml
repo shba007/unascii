@@ -35,8 +35,8 @@ jobs:
       - name: Lint Code
         run: pnpm lint || echo "Linting failed, but continuing"
 
-      - name: Format Code
-        run: pnpm format
+      # - name: Format Code
+      #   run: pnpm format
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
