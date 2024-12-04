@@ -18,7 +18,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Corepack for pnpm
+        run: corepack enable
+
+      - name: Setup Node.js with Corepack
         uses: actions/setup-node@v4
         with:
           node-version: '20'
