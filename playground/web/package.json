@@ -28,7 +28,7 @@
     "unascii": "latest"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^4.0.2",
+    "@sveltejs/vite-plugin-svelte": "^5.0.1",
     "@tsconfig/svelte": "^5.0.4",
     "autoprefixer": "^10.4.20",
     "eslint-config-prettier": "^9.1.0",
