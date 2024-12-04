@@ -7,36 +7,34 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: lts/*
           cache: 'pnpm'
 
       - name: Install Dependencies
-        run: pnpm ci
+        run: pnpm install
 
-      # - name: Lint & Format
-      #   run: npm run lint
+      # - name: Run Tests
+      #   run: pnpm test
 
-      - name: Test Types
-        run: pnpm test:types
+      # - name: Lint Code
+      #   run: pnpm linit
+
+      # - name: Format Code
+      #   run: pnpm format
 
       - name: Bulid Artifacts
         run: pnpm build
-
-      # - name: Run Tests
-      #   run: pnpx vitest --coverage
-
-      # - name: Upload Test Coverage
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
