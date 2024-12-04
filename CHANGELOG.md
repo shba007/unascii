@@ -1,5 +1,15 @@
 # unascii
 
+## 0.3.0
+
+### Minor Changes
+
+- 0efe2f0: chore: update project settings and dependencies
+
+  Updates editor configuration, GitHub workflow, environment type definitions, and project dependencies to improve code style, CI/CD process, and development experience. The changes also include updates to Volta configuration and package manager settings. Additionally, the playground CLI script import path is corrected, and the web playground package configuration is enhanced.
+
+- 73243b3: feat: demo website init
+
 ## v0.2.3
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.2.2...v0.2.3)
