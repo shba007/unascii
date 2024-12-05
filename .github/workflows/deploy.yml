@@ -1,9 +1,10 @@
 name: NPM CD
+run-name: ${{ github.ref_name }}
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - 'v*.*.*'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
