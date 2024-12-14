@@ -1,5 +1,5 @@
 {
-  "name": "unascii",
+  "name": "@shba007/unascii",
   "version": "0.3.0",
   "description": "Print any image in ascii anywhere (browser/cli)",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",

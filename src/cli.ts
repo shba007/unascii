@@ -5,7 +5,7 @@ import { createStorage } from 'unstorage'
 import fsDriver from 'unstorage/drivers/fs'
 
 import { name, description, version } from '../package.json'
-import { asciiPrint, OutputType } from '.'
+import { asciiPrint, type OutputType } from '.'
 import { ASCIICharacterSet, isURL } from './utils'
 
 const storage = createStorage({

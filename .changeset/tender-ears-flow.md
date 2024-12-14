@@ -1,5 +1,5 @@
 ---
-'unascii': patch
+'@shba007/unascii': patch
 ---
 
 build(deps): update dependencies and devDependencies

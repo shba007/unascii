@@ -1,7 +1,5 @@
-import { OutputType, Print, PrintOptions } from './types'
+import { type OutputType, Print, PrintOptions } from './types'
 import { ASCIICharacterSet, asciiCharacterSet, rgbToHex } from './utils'
-
-
 
 let createCanvas: (width: number, height: number) => HTMLCanvasElement
 let loadImage: (url: string) => Promise<HTMLImageElement>
@@ -91,7 +89,9 @@ async function imagePathToASCII(imagePath: string, width: number, widthSkew: num
   const aspectRatio = image.width / image.height
   const canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio))
 
-  const ctx = canvas.getContext('2d')!
+  const ctx = canvas.getContext('2d')
+  if (!ctx)
+    throw new Error('Canvas Context Undefined')
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
 
@@ -107,12 +107,11 @@ export async function asciiPrint(imagePath: string, opts?: PrintOptions): Promis
   await loadFunctions()
 
   if (process.env.DEBUG) console.time('imagePathToASCII')
-  const image = await imagePathToASCII(imagePath, width, widthSkew, widthScale, characters, grayscale, output)
+  const image = imagePathToASCII(imagePath, width, widthSkew, widthScale, characters, grayscale, output)
   if (process.env.DEBUG) console.timeEnd('imagePathToASCII')
 
   return {
     getImage: async () => image,
   }
 }
-
-export {OutputType} from './types'
+export { type OutputType } from './types'
