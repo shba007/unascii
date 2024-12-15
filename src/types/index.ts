@@ -1,4 +1,4 @@
-import { ASCIICharacterSet } from "../utils"
+import { ASCIICharacterSet } from '../utils'
 
 export type OutputType = 'console' | 'file' | 'dom'
 

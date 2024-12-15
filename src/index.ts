@@ -90,8 +90,7 @@ async function imagePathToASCII(imagePath: string, width: number, widthSkew: num
   const canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio))
 
   const ctx = canvas.getContext('2d')
-  if (!ctx)
-    throw new Error('Canvas Context Undefined')
+  if (!ctx) throw new Error('Canvas Context Undefined')
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
 

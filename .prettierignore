@@ -4,18 +4,26 @@ dist
 # Node dependencies
 node_modules
 
-# Package Managers
-package-lock.json
+# Package Manager
+package.json
 pnpm-lock.yaml
-yarn.lock
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+coverage
+
+# Local env files
+.env
+.env.*
 
 # Temporary Files
 temp
 
-# MISC
-coverage
-.vscode
-.DS_Store
-.eslintcache
-*.log*
-*.env*
+# Playground Files
+playground/web
