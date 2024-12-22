@@ -6,9 +6,9 @@
 
 <!-- automd:badges color=blue -->
 
-[![npm version](https://img.shields.io/npm/v/unascii?color=blue)](https://npmjs.com/package/unascii)
-[![npm downloads](https://img.shields.io/npm/dm/unascii?color=blue)](https://npmjs.com/package/unascii)
-[![License](https://img.shields.io/npm/l/unascii?color=blue)](https://github.com/shba007/unascii?tab=MIT-1-ov-file)
+[![npm version](https://img.shields.io/npm/v/@shba007/unascii?color=blue)](https://npmjs.com/package/@shba007/unascii)
+[![npm downloads](https://img.shields.io/npm/dm/@shba007/unascii?color=blue)](https://npmjs.com/@shba007/unascii)
+[![License](https://img.shields.io/npm/l/@shba007/unascii?color=blue)](https://github.com/shba007/unascii?tab=MIT-1-ov-file)
 
 <!-- /automd -->
 
