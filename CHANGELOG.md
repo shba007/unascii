@@ -1,5 +1,20 @@
 # unascii
 
+## 0.3.2
+
+### Patch Changes
+
+- f348d97: chore: add .env.example and update ignore patterns for environment files, updated packages
+- 054d526: chore: add husky and commitlint for improved commit messages and code quality
+  chore: update prettierignore to ignore more files and folders
+  chore: remove unnecessary eslint rules and overrides
+  chore: add gitleaks pre-commit hook to detect secrets
+  chore: add opencommit for easier commit message generation
+  chore: add utils functions for rgbToHex and isURL
+  chore: update package.json scripts and add prepare script
+  refactor(index): remove redundant null check for canvas context
+  style: fix import paths in types/index.ts
+
 ## 0.3.1
 
 ### Patch Changes
