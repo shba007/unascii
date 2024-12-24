@@ -57,7 +57,7 @@
     "unascii": "jiti playground/cli"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
+    "canvas": "^3.0.0",
     "chalk": "^5.4.1",
     "citty": "^0.1.6",
     "consola": "^3.3.0",
