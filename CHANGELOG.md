@@ -1,5 +1,11 @@
 # unascii
 
+## 0.3.3
+
+### Patch Changes
+
+- 4a3e3d5: chore: update Node.js version and dependencies, adjust workflows, and refine ignore files
+
 ## 0.3.2
 
 ### Patch Changes
