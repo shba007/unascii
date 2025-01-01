@@ -19,13 +19,13 @@
 Globally run unascii with `npx`:
 
 ```sh
-npx unascii@latest ./file/path.jpg
+npx @shba007/unascii@latest ./file/path.jpg
 ```
 
 or
 
 ```sh
-npx unascii@latest ./file/path.jpg --width=50
+npx @shba007/unascii@latest ./file/path.jpg --width=50
 ```
 
     Options:
@@ -35,7 +35,7 @@ npx unascii@latest ./file/path.jpg --width=50
     --characters <minimalist|normal|normal2|alphabetic|alphanumeric|numerical|extended|math|arrow|grayscale|max|codepage437|blockelement> Output Character Set
     --grayscale <true|false> Output as grayscale or color only works with console
 
-Use `npx unascii --help` for more usage info.
+Use `npx @shba007/unascii --help` for more usage info.
 
 ## Usage (API)
 
@@ -45,19 +45,19 @@ Install package:
 
 ```sh
 # ✨ Auto-detect
-npx nypm install unascii
+npx nypm install @shba007/unascii
 
 # npm
-npm install unascii
+npm install @shba007/unascii
 
 # yarn
-yarn add unascii
+yarn add @shba007/unascii
 
 # pnpm
-pnpm install unascii
+pnpm install @shba007/unascii
 
 # bun
-bun install unascii
+bun install @shba007/unascii
 ```
 
 <!-- /automd -->
@@ -69,19 +69,19 @@ Import:
 **ESM** (Node.js, Bun)
 
 ```js
-import {} from 'unascii'
+import {} from '@shba007/unascii'
 ```
 
 **CommonJS** (Legacy Node.js)
 
 ```js
-const {} = require('unascii')
+const {} = require('@shba007/unascii')
 ```
 
 **CDN** (Deno, Bun and Browsers)
 
 ```js
-import {} from 'https://esm.sh/unascii'
+import {} from 'https://esm.sh/@shba007/unascii'
 ```
 
 <!-- /automd -->
