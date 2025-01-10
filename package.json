@@ -34,13 +34,13 @@
     "bin"
   ],
   "volta": {
-    "node": "22.12.0"
+    "node": "22.13.0"
   },
   "engines": {
     "node": "^20.15.0 || ^22.11.0",
     "pnpm": "^9.15.0"
   },
-  "packageManager": "pnpm@9.15.2",
+  "packageManager": "pnpm@9.15.3",
   "scripts": {
     "prepare": "husky || true",
     "dev": "vitest dev",
@@ -54,22 +54,22 @@
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "clean": "rm -rf coverage dist",
-    "unascii": "jiti playground/cli"
+    "unascii": "node bin/unascii.mjs"
   },
   "dependencies": {
     "canvas": "^3.0.1",
     "chalk": "^5.4.1",
     "citty": "^0.1.6",
     "consola": "^3.3.3",
-    "pathe": "^1.1.2",
+    "pathe": "^2.0.1",
     "unstorage": "^1.14.4"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.11",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@dotenvx/dotenvx": "^1.32.0",
-    "@types/node": "^22.10.3",
+    "@dotenvx/dotenvx": "^1.32.1",
+    "@types/node": "^22.10.5",
     "@vitest/coverage-v8": "^2.1.8",
     "changelogen": "^0.5.7",
     "eslint": "^9.17.0",
@@ -77,7 +77,7 @@
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.2",
+    "typescript": "^5.7.3",
     "unbuild": "3.2.0",
     "vitest": "^2.1.8"
   }

@@ -17,7 +17,7 @@ async function loadFunctions() {
     async function loadImageBrowser(url: string): Promise<HTMLImageElement> {
       return new Promise((resolve) => {
         const image = new Image()
-        image.crossOrigin = 'Anonymous'
+        image.crossOrigin = 'anonymous'
         image.addEventListener('load', () => resolve(image))
 
         image.src = url

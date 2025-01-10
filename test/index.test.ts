@@ -12,7 +12,20 @@ describe('unascii', () => {
 
   test('Node API Console', async () => {
     try {
-      const print = await asciiPrint(`./temp/logo-1.png`, { width: 32, output: 'console' })
+      const print = await asciiPrint('./temp/logo-1.png', { width: 32, output: 'console' })
+      console.log(await print.getImage())
+
+      expect(true).toBe(true)
+    } catch {
+      expect(true).toBe(false)
+    }
+  })
+  test('Node API Console Remote', async () => {
+    try {
+      const print = await asciiPrint('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png?20230715030042', {
+        width: 32,
+        output: 'console',
+      })
       console.log(await print.getImage())
 
       expect(true).toBe(true)
@@ -23,7 +36,7 @@ describe('unascii', () => {
 
   test('Node API File', async () => {
     try {
-      const print = await asciiPrint(`./temp/logo-1.png`, { width: 32, output: 'file' })
+      const print = await asciiPrint('./temp/logo-1.png', { width: 32, output: 'file' })
       console.log(await print.getImage())
 
       expect(true).toBe(true)
