@@ -1,5 +1,11 @@
 # unascii
 
+## 0.3.5
+
+### Patch Changes
+
+- d22da5a: refactor: remove unused configuration files and update dependencies
+
 ## 0.3.4
 
 ### Patch Changes
