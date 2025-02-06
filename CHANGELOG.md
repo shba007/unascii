@@ -1,5 +1,11 @@
 # unascii
 
+## 0.3.6
+
+### Patch Changes
+
+- bc8f837: chore: set up Husky hooks, add commitlint, and configure Prettier and TypeScript for Svelte project
+
 ## 0.3.5
 
 ### Patch Changes
