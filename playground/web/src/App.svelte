@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { asciiPrint } from 'unascii'
-  import { useMediaQuery } from '@svelte-use/core'
+  import { asciiPrint } from '@shba007/unascii'
+  import { useMediaQuery } from './utils/useMediaQuery'
 
   const isMDScreen = useMediaQuery('(min-width: 768px)')
 
@@ -26,6 +26,7 @@
       fontSize = 20 / width
     } catch (error) {
       renderError = error as string
+      console.error(error)
     }
     isLoading = false
   }
@@ -47,7 +48,7 @@
   <div class="fixed bottom-4 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-slate-700 p-2">
     <input name="url" type="text" placeholder="URL" bind:value={url} />
     <input name="width" type="number" placeholder="Width" class="appearance-none" min="10" max="500" step="10" bind:value={width} />
-    <button on:click={render} disabled={isLoading} class="rounded-full bg-sky-500 px-6 py-1.5 hover:bg-sky-400 disabled:cursor-not-allowed disabled:bg-sky-800 disabled:text-opacity-50">
+    <button on:click={render} disabled={isLoading} class="rounded-full bg-sky-500 px-6 py-1.5 hover:bg-sky-400 cursor-pointer disabled:cursor-not-allowed disabled:bg-sky-800 disabled:text-opacity-50">
       {isLoading ? 'Loading' : 'Render'}
     </button>
   </div>
