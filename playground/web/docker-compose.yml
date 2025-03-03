@@ -1,0 +1,10 @@
+name: 'unascii'
+services:
+  web:
+    # image: 'ghcr.io/shba007/unascii:latest'
+    build: .
+    restart: on-failure:3
+    env_file:
+      - .env.prod
+    ports:
+      - 3300:8080
