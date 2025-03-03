@@ -50,14 +50,14 @@ jobs:
 
   build-static:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: playground/web
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Change Working Directory
-        run: cd playground/web
 
       - name: Setup pnpm
         run: npm i -g pnpm
@@ -98,14 +98,15 @@ jobs:
       buildtime: ${{ steps.metadata.outputs.buildtime }}
       version: ${{ steps.metadata.outputs.version }}
 
+    defaults:
+      run:
+        working-directory: playground/web
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Change Working Directory
-        run: cd playground/web
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
