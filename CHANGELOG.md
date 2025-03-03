@@ -1,5 +1,11 @@
 # unascii
 
+## 0.4.0
+
+### Minor Changes
+
+- 5801f9d: feat: add initial setup for UnAscii Playground with Docker support and UI components
+
 ## 0.3.7
 
 ### Patch Changes
