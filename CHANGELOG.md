@@ -1,5 +1,11 @@
 # unascii
 
+## 0.3.7
+
+### Patch Changes
+
+- d654ab5: fix: replace process.env with std-env for environment variable access
+
 ## 0.3.6
 
 ### Patch Changes
