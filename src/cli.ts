@@ -1,6 +1,7 @@
 import { defineCommand, runMain as _runMain } from 'citty'
 import consola from 'consola'
 import pathe from 'pathe'
+import { env } from 'std-env'
 import { createStorage } from 'unstorage'
 import fsDriver from 'unstorage/drivers/fs'
 
@@ -59,7 +60,7 @@ export const main = defineCommand({
   },
   async run({ args }) {
     if (args.verbose) {
-      process.env.DEBUG = process.env.DEBUG || 'true'
+      env.DEBUG = env.DEBUG || 'true'
     }
 
     const print = await asciiPrint(args.path, {

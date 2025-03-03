@@ -1,3 +1,4 @@
+import { runtime, env } from 'std-env'
 import { type OutputType, Print, PrintOptions } from './types'
 import { ASCIICharacterSet, asciiCharacterSet, rgbToHex } from './utils'
 
@@ -6,7 +7,7 @@ let loadImage: (url: string) => Promise<HTMLImageElement>
 let colorizer: (color: string, char: string, output?: OutputType) => string
 
 async function loadFunctions() {
-  if (process.env.BROWSER) {
+  if (runtime === '') {
     function createCanvasBrowser(width: number, height: number) {
       const canvas = document.createElement('canvas')
       canvas.width = width
@@ -83,9 +84,9 @@ function imageDataToASCII(imageData: ImageData, widthScale: number, characterSet
 }
 
 async function imagePathToASCII(imagePath: string, width: number, widthSkew: number, widthScale: number, characterSet: ASCIICharacterSet, isGrayscale: boolean, outputType: OutputType) {
-  if (process.env.DEBUG) console.time('loadImage')
+  if (env.DEBUG) console.time('loadImage')
   const image = await loadImage(imagePath)
-  if (process.env.DEBUG) console.timeEnd('loadImage')
+  if (env.DEBUG) console.timeEnd('loadImage')
   const aspectRatio = image.width / image.height
   const canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio))
 
@@ -94,9 +95,9 @@ async function imagePathToASCII(imagePath: string, width: number, widthSkew: num
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
 
-  if (process.env.DEBUG) console.time('imageDataToASCII')
+  if (env.DEBUG) console.time('imageDataToASCII')
   const data = imageDataToASCII(imageData, widthScale, characterSet, isGrayscale, outputType)
-  if (process.env.DEBUG) console.timeEnd('imageDataToASCII')
+  if (env.DEBUG) console.timeEnd('imageDataToASCII')
 
   return data
 }
@@ -105,9 +106,9 @@ export async function asciiPrint(imagePath: string, opts?: PrintOptions): Promis
   const { width = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts ?? {}
   await loadFunctions()
 
-  if (process.env.DEBUG) console.time('imagePathToASCII')
+  if (env.DEBUG) console.time('imagePathToASCII')
   const image = imagePathToASCII(imagePath, width, widthSkew, widthScale, characters, grayscale, output)
-  if (process.env.DEBUG) console.timeEnd('imagePathToASCII')
+  if (env.DEBUG) console.timeEnd('imagePathToASCII')
 
   return {
     getImage: async () => image,
