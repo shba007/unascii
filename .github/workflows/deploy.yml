@@ -124,7 +124,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.REPO }}
+          images: ${{ env.REGISTRY }}/${{ env.REPO }}-web
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}

@@ -1,8 +1,7 @@
 name: 'unascii'
 services:
   web:
-    # image: 'ghcr.io/shba007/unascii:latest'
-    build: .
+    image: 'ghcr.io/shba007/unascii-web:latest'
     restart: on-failure:3
     env_file:
       - .env.prod
