@@ -4,12 +4,10 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 export default defineConfig({
   plugins: [svelte()],
+  base: process.env.VITE_APP_BASE_URL ? `${process.env.VITE_APP_BASE_URL}/` : '',
   resolve: {
     alias: {
       $lib: path.resolve('./src/lib'),
     }
   },
-  define: {
-    'env': { BROWSER: process.env.VITE_BROWSER }
-  }
 });
