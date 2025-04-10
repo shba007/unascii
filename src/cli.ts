@@ -1,5 +1,5 @@
 import { defineCommand, runMain as _runMain } from 'citty'
-import consola from 'consola'
+import { consola } from 'consola'
 import pathe from 'pathe'
 import { env } from 'std-env'
 import { createStorage } from 'unstorage'
