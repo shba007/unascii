@@ -1,5 +1,23 @@
 # unascii
 
+## v0.4.1
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.0...v0.4.1)
+
+### 🩹 Fixes
+
+- Update package dependencies and package manager version ([2c2da06](https://github.com/shba007/unascii/commit/2c2da06))
+- Update consola import to named import ([1d99b3f](https://github.com/shba007/unascii/commit/1d99b3f))
+
+### 💅 Refactors
+
+- **ci:** Ci/cd workflow refactored and update deps ([b2a4dd6](https://github.com/shba007/unascii/commit/b2a4dd6))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## 0.4.0
 
 ### Minor Changes
