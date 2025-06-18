@@ -2,15 +2,11 @@
   <img src="./public/logo.png" lt="Logo" width="128" />
 <p>
 
-# unascii
-
-<!-- automd:badges color=blue -->
+# UnASCII
 
 [![npm version](https://img.shields.io/npm/v/@shba007/unascii?color=blue)](https://npmjs.com/package/@shba007/unascii)
 [![npm downloads](https://img.shields.io/npm/dm/@shba007/unascii?color=blue)](https://npmjs.com/@shba007/unascii)
 [![License](https://img.shields.io/npm/l/@shba007/unascii?color=blue)](https://github.com/shba007/unascii?tab=MIT-1-ov-file)
-
-<!-- /automd -->
 
 > Print any image in ascii anywhere (browser/cli)
 
@@ -41,8 +37,6 @@ Use `npx @shba007/unascii --help` for more usage info.
 
 Install package:
 
-<!-- automd:pm-install -->
-
 ```sh
 # ✨ Auto-detect
 npx nypm install @shba007/unascii
@@ -60,11 +54,7 @@ pnpm install @shba007/unascii
 bun install @shba007/unascii
 ```
 
-<!-- /automd -->
-
 Import:
-
-<!-- automd:jsimport cjs cdn name="pkg" -->
 
 **ESM** (Node.js, Bun)
 
@@ -84,8 +74,6 @@ const {} = require('@shba007/unascii')
 import {} from 'https://esm.sh/@shba007/unascii'
 ```
 
-<!-- /automd -->
-
 ## Development
 
 <details>
@@ -102,13 +90,8 @@ import {} from 'https://esm.sh/@shba007/unascii'
 
 ## License
 
-<!-- automd:contributors license=MIT -->
-
 Published under the [MIT](https://github.com/shba007/unascii/blob/main/LICENSE) license.
-Made by [community](https://github.com/shba007/unascii/graphs/contributors) 💛
 <br><br>
 <a href="https://github.com/shba007/unascii/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=shba007/unascii" />
 </a>
-
-<!-- /automd -->
