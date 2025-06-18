@@ -1,5 +1,21 @@
 # unascii
 
+## v0.4.2
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.1...v0.4.2)
+
+### 🩹 Fixes
+
+- Update image paths in tests and improve README formatting ([77dcdfd](https://github.com/shba007/unascii/commit/77dcdfd))
+
+### 💅 Refactors
+
+- Runtime changed form node to bun ([5e4a964](https://github.com/shba007/unascii/commit/5e4a964))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.1
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.0...v0.4.1)
