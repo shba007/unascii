@@ -1,5 +1,17 @@
 # unascii
 
+## v0.4.6
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.5...v0.4.6)
+
+### 🚀 Enhancements
+
+- Migrated to bun from node ([361fdea](https://github.com/shba007/unascii/commit/361fdea))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.5
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.4...v0.4.5)
