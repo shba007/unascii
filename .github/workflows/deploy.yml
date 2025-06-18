@@ -56,6 +56,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.token] }}
         run: |
+          echo "//${matrix.registry.url#https://}/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          echo "registry=${matrix.registry.url}" >> ~/.npmrc
           bun publish --no-git-checks --access public
 
   # build-web:
