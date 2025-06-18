@@ -1,5 +1,17 @@
 # unascii
 
+## v0.4.7
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.6...v0.4.7)
+
+### 🚀 Enhancements
+
+- Update npmrc path and clean up after publishing ([d35df48](https://github.com/shba007/unascii/commit/d35df48))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.6
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.5...v0.4.6)
