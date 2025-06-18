@@ -30,7 +30,7 @@ jobs:
       matrix:
         registry:
           - url: https://npm.pkg.github.com
-            token: 'GITHUB_TOKEN'
+            token: 'GH_PAT'
             scope: '@${{ github.repository_owner }}'
           - url: https://registry.npmjs.org
             token: 'NPM_TOKEN'
