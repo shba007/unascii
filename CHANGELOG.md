@@ -1,5 +1,17 @@
 # unascii
 
+## v0.4.4
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.3...v0.4.4)
+
+### 🩹 Fixes
+
+- Update GitHub token to use GH_PAT for npm registry access ([13c3584](https://github.com/shba007/unascii/commit/13c3584))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.3
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.2...v0.4.3)
