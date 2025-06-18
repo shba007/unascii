@@ -1,5 +1,17 @@
 # unascii
 
+## v0.4.8
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.7...v0.4.8)
+
+### 🚀 Enhancements
+
+- **core:** Add semantic‑versioning guard for new API ([1109517](https://github.com/shba007/unascii/commit/1109517))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.7
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.6...v0.4.7)
