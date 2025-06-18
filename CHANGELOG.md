@@ -1,5 +1,17 @@
 # unascii
 
+## v0.4.3
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.2...v0.4.3)
+
+### 💅 Refactors
+
+- Update deployment workflow and package scripts for Bun compatibility ([65c573d](https://github.com/shba007/unascii/commit/65c573d))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.2
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.1...v0.4.2)
