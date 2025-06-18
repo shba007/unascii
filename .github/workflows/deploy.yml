@@ -58,43 +58,43 @@ jobs:
         run: |
           bun publish --no-git-checks --access public
 
-  build-web:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs-old/web
-    steps:
-      - name: 📥 Checkout Repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+  # build-web:
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: docs-old/web
+  #   steps:
+  #     - name: 📥 Checkout Repo
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
 
-      - name: 🛠️ Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+  #     - name: 🛠️ Setup Bun
+  #       uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
 
-      - name: 📦 Install Dependencies
-        run: bun install --frozen-lockfile
+  #     - name: 📦 Install Dependencies
+  #       run: bun install --frozen-lockfile
 
-      - name: ⚙️ Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
+  #     - name: ⚙️ Setup Pages
+  #       id: pages
+  #       uses: actions/configure-pages@v5
 
-      - name: ⚙️ Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs-old/web/dist
+  #     - name: ⚙️ Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         path: docs-old/web/dist
 
-  deploy-web:
-    needs: build-web
+  # deploy-web:
+  #   needs: build-web
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🔀 Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🔀 Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4

@@ -49,7 +49,7 @@
     "test": "bun lint && bun test:types && vitest run --coverage",
     "play": "dotenvx run -- jiti examples",
     "build": "unbuild",
-    "prepack": "bun build",
+    "prepack": "bun run build",
     "clean": "rm -rf coverage dist",
     "unascii": "bun bin/unascii.mjs"
   },
