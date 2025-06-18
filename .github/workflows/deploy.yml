@@ -26,69 +26,65 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        registry:
+          - url: https://npm.pkg.github.com
+            token: 'GITHUB_TOKEN'
+            scope: '@${{ github.repository_owner }}'
+          - url: https://registry.npmjs.org
+            token: 'NPM_TOKEN'
+            scope: '@${{ github.repository_owner }}'
+
     steps:
-      - name: Checkout Repo
+      - name: 📥 Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        run: npm i -g pnpm
-
-      - name: Setup Node.js with pnpm
-        uses: actions/setup-node@v4
+      - name: 🛠️ Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: lts/*
-          cache: 'pnpm'
+          bun-version: latest
+          registry-url: ${{ matrix.registry.url }}
+          scope: ${{ matrix.registry.scope }}
 
-      - name: Install Dependencies
-        run: pnpm install
+      - name: 📦 Install Dependencies
+        run: bun install --frozen-lockfile
 
-      - name: Bulid Artifacts
-        run: pnpm build
-
-      - name: Publish Package
+      - name: ⚙️ Publish Package
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.token] }}
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
-          pnpm publish --no-git-checks --access public
+          bun publish --no-git-checks --access public
 
   build-web:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: playground/web
+        working-directory: docs-old/web
     steps:
-      - name: Checkout Repo
+      - name: 📥 Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        run: npm i -g pnpm
-
-      - name: Setup Node.js with pnpm
-        uses: actions/setup-node@v4
+      - name: 🛠️ Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: lts/*
-          cache: 'pnpm'
+          bun-version: latest
 
-      - name: Install Dependencies
-        run: pnpm install
+      - name: 📦 Install Dependencies
+        run: bun install --frozen-lockfile
 
-      - name: Build Artifacts
-        run: pnpm build
-
-      - name: Setup Pages
+      - name: ⚙️ Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: ⚙️ Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: playground/web/dist
+          path: docs-old/web/dist
 
   deploy-web:
     needs: build-web
@@ -99,6 +95,6 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: 🔀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

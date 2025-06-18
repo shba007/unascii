@@ -33,14 +33,12 @@
     "dist",
     "bin"
   ],
-  "volta": {
-    "node": "22.14.0"
-  },
   "engines": {
     "node": "^20.15.0 || ^22.11.0",
-    "pnpm": "^9.15.0 || ^10.2.0"
+    "pnpm": "^9.15.0 || ^10.2.0",
+    "bun": "^1.2.9"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "bun@1.2.16",
   "scripts": {
     "prepare": "husky || true",
     "dev": "vitest dev",
@@ -49,42 +47,42 @@
     "format": "prettier . --write",
     "test:types": "tsc --noEmit --skipLibCheck",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
-    "play": "dotenvx run -- jiti playground/cli",
-    "build": "unbuild",
+    "play": "dotenvx run -- jiti examples",
+    "build": "unbuild && bun build --compile --minify --sourcemap ./bin/unascii.mjs --outfile ./bin/unascii",
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "clean": "rm -rf coverage dist",
-    "unascii": "node bin/unascii.mjs"
+    "unascii": "bun bin/unascii.mjs"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.10",
     "canvas": "^3.1.0",
     "chalk": "^5.4.1",
     "citty": "^0.1.6",
     "consola": "^3.4.2",
     "pathe": "^2.0.3",
     "std-env": "^3.9.0",
-    "unstorage": "^1.15.0"
+    "tailwindcss": "^4.1.10",
+    "unstorage": "^1.16.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@dotenvx/dotenvx": "^1.39.1",
-    "@types/node": "^22.14.0",
-    "@vitest/coverage-v8": "^3.1.1",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@dotenvx/dotenvx": "^1.44.2",
+    "@types/node": "^24.0.3",
+    "@vitest/coverage-v8": "^3.2.4",
     "changelogen": "^0.6.1",
-    "eslint": "^9.24.0",
+    "eslint": "^9.29.0",
     "eslint-config-unjs": "^0.4.2",
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "prettier": "^3.5.3",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.3",
     "unbuild": "3.5.0",
-    "vitest": "^3.1.1"
+    "vitepress": "^1.6.3",
+    "vitest": "^3.2.4"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "canvas",
-      "esbuild"
-    ]
-  }
+  "trustedDependencies": [
+    "@tailwindcss/oxide"
+  ]
 }

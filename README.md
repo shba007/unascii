@@ -112,11 +112,3 @@ Made by [community](https://github.com/shba007/unascii/graphs/contributors) 💛
 </a>
 
 <!-- /automd -->
-
-<!-- automd:with-automd -->
-
----
-
-_🤖 auto updated with [automd](https://automd.unjs.io)_
-
-<!-- /automd -->

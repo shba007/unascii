@@ -1,5 +1,7 @@
 # Build files
 dist
+bin
+!bin/unascii.mjs
 
 # Node dependencies
 node_modules
