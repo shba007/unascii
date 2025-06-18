@@ -1,5 +1,17 @@
 # unascii
 
+## v0.4.5
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.4...v0.4.5)
+
+### 🩹 Fixes
+
+- Add npmrc configuration for registry authentication ([5d92231](https://github.com/shba007/unascii/commit/5d92231))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.4
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.3...v0.4.4)
