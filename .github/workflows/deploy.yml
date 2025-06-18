@@ -58,9 +58,10 @@ jobs:
           REGISTRY_URL: ${{ matrix.registry.url }}
         run: |
           CLEAN_URL="${REGISTRY_URL#https://}"
-          echo "//${CLEAN_URL}/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-          echo "registry=${REGISTRY_URL}" >> ~/.npmrc
+          echo "//${CLEAN_URL}/:_authToken=${NODE_AUTH_TOKEN}" > ./.npmrc
+          echo "registry=${REGISTRY_URL}" >> ./.npmrc
           bun publish --no-git-checks --access public
+          rm ./.npmrc
 
   # build-web:
   #   runs-on: ubuntu-latest
