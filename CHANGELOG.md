@@ -2,91 +2,28 @@
 
 ## v0.4.8
 
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.7...v0.4.8)
-
-### 🚀 Enhancements
-
-- **core:** Add semantic‑versioning guard for new API ([1109517](https://github.com/shba007/unascii/commit/1109517))
-
-### ❤️ Contributors
-
-- Shba007 ([@shba007](https://github.com/shba007))
-
-## v0.4.7
-
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.6...v0.4.7)
-
-### 🚀 Enhancements
-
-- Update npmrc path and clean up after publishing ([d35df48](https://github.com/shba007/unascii/commit/d35df48))
-
-### ❤️ Contributors
-
-- Shba007 ([@shba007](https://github.com/shba007))
-
-## v0.4.6
-
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.5...v0.4.6)
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.1...v0.4.8)
 
 ### 🚀 Enhancements
 
 - Migrated to bun from node ([361fdea](https://github.com/shba007/unascii/commit/361fdea))
-
-### ❤️ Contributors
-
-- Shba007 ([@shba007](https://github.com/shba007))
-
-## v0.4.5
-
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.4...v0.4.5)
-
-### 🩹 Fixes
-
-- Add npmrc configuration for registry authentication ([5d92231](https://github.com/shba007/unascii/commit/5d92231))
-
-### ❤️ Contributors
-
-- Shba007 ([@shba007](https://github.com/shba007))
-
-## v0.4.4
-
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.3...v0.4.4)
-
-### 🩹 Fixes
-
-- Update GitHub token to use GH_PAT for npm registry access ([13c3584](https://github.com/shba007/unascii/commit/13c3584))
-
-### ❤️ Contributors
-
-- Shba007 ([@shba007](https://github.com/shba007))
-
-## v0.4.3
-
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.2...v0.4.3)
-
-### 💅 Refactors
-
-- Update deployment workflow and package scripts for Bun compatibility ([65c573d](https://github.com/shba007/unascii/commit/65c573d))
-
-### ❤️ Contributors
-
-- Shba007 ([@shba007](https://github.com/shba007))
-
-## v0.4.2
-
-[compare changes](https://github.com/shba007/unascii/compare/v0.4.1...v0.4.2)
+- Update npmrc path and clean up after publishing ([d35df48](https://github.com/shba007/unascii/commit/d35df48))
+- **core:** Add semantic‑versioning guard for new API ([1109517](https://github.com/shba007/unascii/commit/1109517))
 
 ### 🩹 Fixes
 
 - Update image paths in tests and improve README formatting ([77dcdfd](https://github.com/shba007/unascii/commit/77dcdfd))
+- Update GitHub token to use GH_PAT for npm registry access ([13c3584](https://github.com/shba007/unascii/commit/13c3584))
+- Add npmrc configuration for registry authentication ([5d92231](https://github.com/shba007/unascii/commit/5d92231))
 
 ### 💅 Refactors
 
 - Runtime changed form node to bun ([5e4a964](https://github.com/shba007/unascii/commit/5e4a964))
+- Update deployment workflow and package scripts for Bun compatibility ([65c573d](https://github.com/shba007/unascii/commit/65c573d))
 
 ### ❤️ Contributors
 
-- Shba007 ([@shba007](https://github.com/shba007))
+- Shba007 (@shba007)
 
 ## v0.4.1
 
