@@ -1,5 +1,25 @@
 # unascii
 
+## v1.0.0
+
+[compare changes](https://github.com/shba007/unascii/compare/v0.4.8...v1.0.0)
+
+### 🏡 Chore
+
+- Bump version to 1.0.0 for release ([199e5f2](https://github.com/shba007/unascii/commit/199e5f2))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Bump version to 1.0.0 ([ab1c093](https://github.com/shba007/unascii/commit/ab1c093))
+- ⚠️  Code structure for improved readability and maintainability ([3d88f6e](https://github.com/shba007/unascii/commit/3d88f6e))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.4.8
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.1...v0.4.8)
