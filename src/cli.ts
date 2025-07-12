@@ -73,7 +73,7 @@ export const main = defineCommand({
 
     const image = await print.getImage()
     if (args.output === 'console') {
-      consola.info('\n' + image)
+      console.info('\n' + image)
     } else if (args.output === 'file') {
       const outputPath = pathe.format({ name: isURL(args.path) ? args.path.split('/').at(-1)?.split('.')[0] : pathe.parse(args.path).name, root: '/', ext: '.txt' })
       await storage.setItem(outputPath, image)
