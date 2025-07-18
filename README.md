@@ -1,6 +1,10 @@
 <p align="center">
-  <img src="./public/logo.png" lt="Logo" width="128" />
-<p>
+  <picture>
+    <source srcset="./public/logo-dark.png" media="(prefers-color-scheme: dark)">
+    <source srcset="./public/logo-light.png" media="(prefers-color-scheme: light)">
+    <img src="./public/logo-light.png" alt="Logo" width="128">
+  </picture>
+</p>
 
 # UnASCII
 
@@ -9,6 +13,8 @@
 [![License](https://img.shields.io/npm/l/@shba007/unascii?color=blue)](https://github.com/shba007/unascii?tab=MIT-1-ov-file)
 
 > Print any image in ascii anywhere (browser/cli)
+
+<video controls src="public/preview.mp4" title="Demo" loop muted autoplay></video>
 
 ## Usage (CLI)
 
