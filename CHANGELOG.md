@@ -1,5 +1,21 @@
 # unascii
 
+## v1.0.1
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.0...v1.0.1)
+
+### 📖 Documentation
+
+- Update logo assets and added demo video ([c9211df](https://github.com/shba007/unascii/commit/c9211df))
+
+### 🏡 Chore
+
+- Update package.json dependencies and package manager version ([2aa1079](https://github.com/shba007/unascii/commit/2aa1079))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v1.0.0
 
 [compare changes](https://github.com/shba007/unascii/compare/v0.4.8...v1.0.0)
