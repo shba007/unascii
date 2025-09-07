@@ -1,5 +1,18 @@
 # unascii
 
+## v1.0.2
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.1...v1.0.2)
+
+### 🏡 Chore
+
+- Update dependencies and package manager version ([7ee1a8c](https://github.com/shba007/unascii/commit/7ee1a8c))
+- Upgrade actions/checkout to v5 in workflow files ([59a2743](https://github.com/shba007/unascii/commit/59a2743))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v1.0.1
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.0...v1.0.1)
