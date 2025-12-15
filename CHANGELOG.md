@@ -1,5 +1,21 @@
 # unascii
 
+## v1.0.4
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.3...v1.0.4)
+
+### 🩹 Fixes
+
+- Correct output file path for CLI executable in build scripts ([1e80027](https://github.com/shba007/unascii/commit/1e80027))
+
+### 🏡 Chore
+
+- Update bun configuration and dependencies ([c57936d](https://github.com/shba007/unascii/commit/c57936d))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.3
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.2...v1.0.3)
