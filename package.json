@@ -49,10 +49,10 @@
     "test": "bun lint && bun test:types && dotenvx run -- vitest run --coverage",
     "play": "dotenvx run -- jiti examples",
     "build": "unbuild",
-    "bun:build": "bun run build && bun build bin/unascii.mjs --compile --production --outfile=dist/bin/unascii.exe",
+    "bun:build": "bun run build && bun build bin/unascii.mjs --compile --production --outfile=dist/bin/cli.exe",
     "prepack": "bun run build",
     "clean": "rm -rf coverage dist",
-    "unascii": "./dist/bin/unascii.exe"
+    "unascii": "./dist/bin/cli.exe"
   },
   "dependencies": {
     "canvas": "^3.2.0",
