@@ -75,7 +75,7 @@
     "jiti": "^2.6.1",
     "prettier": "^3.7.4",
     "typescript": "^5.9.3",
-    "unbuild": "3.5.0",
+    "unbuild": "3.6.1",
     "vitepress": "^1.6.4",
     "vitest": "^4.0.15"
   },
