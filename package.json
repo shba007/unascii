@@ -60,7 +60,7 @@
     "citty": "^0.2.0",
     "consola": "^3.4.2",
     "pathe": "^2.0.3",
-    "std-env": "^3.10.0",
+    "std-env": "^4.1.0",
     "unstorage": "^1.17.4"
   },
   "devDependencies": {
