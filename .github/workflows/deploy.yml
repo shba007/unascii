@@ -6,7 +6,6 @@ permissions:
   packages: write
   attestations: write
   id-token: write
-  pages: write
 
 on:
   release:
@@ -20,7 +19,6 @@ concurrency:
 env:
   REPO: ${{ github.repository }}
   VERSION: ${{ github.ref_name }}
-  VITE_APP_BASE_URL: '/unascii'
 
 jobs:
   publish:
@@ -45,8 +43,6 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-          registry-url: ${{ matrix.registry.url }}
-          scope: ${{ matrix.registry.scope }}
 
       - name: 📦 Install Dependencies
         run: bun install --frozen-lockfile
@@ -111,46 +107,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/bin/cli${{ matrix.ext }}
-          asset_name: unascii_${{ env.VERSION }}_${{ matrix.name }}${{ matrix.ext }}
+          asset_name: unstack_${{ env.VERSION }}_${{ matrix.name }}${{ matrix.ext }}
           tag: ${{ env.VERSION }}
-
-  # build-web:
-  #   runs-on: ubuntu-latest
-  #   defaults:
-  #     run:
-  #       working-directory: docs-old/web
-  #   steps:
-  #     - name: 📥 Checkout Repo
-  #       uses: actions/checkout@v6
-  #       with:
-  #         fetch-depth: 0
-
-  #     - name: 🛠️ Setup Bun
-  #       uses: oven-sh/setup-bun@v2
-  #       with:
-  #         bun-version: latest
-
-  #     - name: 📦 Install Dependencies
-  #       run: bun install --frozen-lockfile
-
-  #     - name: ⚙️ Setup Pages
-  #       id: pages
-  #       uses: actions/configure-pages@v5
-
-  #     - name: ⚙️ Upload artifact
-  #       uses: actions/upload-pages-artifact@v3
-  #       with:
-  #         path: docs-old/web/dist
-
-  # deploy-web:
-  #   needs: build-web
-
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: 🔀 Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4
