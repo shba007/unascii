@@ -64,8 +64,8 @@
     "unstorage": "^1.17.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.0",
-    "@commitlint/config-conventional": "^20.4.0",
+    "@commitlint/cli": "^21.0.0",
+    "@commitlint/config-conventional": "^21.0.0",
     "@dotenvx/dotenvx": "^1.52.0",
     "@types/node": "^25.2.0",
     "@vitest/coverage-v8": "^4.0.18",
