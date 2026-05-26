@@ -1,5 +1,18 @@
 # unascii
 
+## v1.0.7
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.6...v1.0.7)
+
+### 🏡 Chore
+
+- Update package dependencies and package manager version ([67c9b81](https://github.com/shba007/unascii/commit/67c9b81))
+- Update package dependencies and engines ([fcea70d](https://github.com/shba007/unascii/commit/fcea70d))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.6
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.5...v1.0.6)
