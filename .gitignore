@@ -24,3 +24,5 @@ coverage
 
 # Temporary Files
 temp
+
+.vitepress

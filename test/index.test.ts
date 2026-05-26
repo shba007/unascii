@@ -22,7 +22,7 @@ describe('unascii', () => {
   })
   test('Node API Console Remote', async () => {
     try {
-      const print = await asciiPrint('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png?20230715030042', {
+      const print = await asciiPrint('https://redcatpictures.com/logo-dark.png', {
         width: 32,
         output: 'console',
       })

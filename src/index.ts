@@ -30,7 +30,7 @@ async function loadFunctions() {
     colorizer = (color, char, output) => (output === 'console' ? char : `<span style="color: ${color}">${char}</span>`)
   } else {
     try {
-      const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import('canvas')
+      const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import('@napi-rs/canvas')
       const { Chalk } = await import('chalk')
 
       createCanvas = createCanvasNode as unknown as typeof createCanvas
