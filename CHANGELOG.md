@@ -1,5 +1,22 @@
 # unascii
 
+## v1.0.8
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.7...v1.0.8)
+
+### 💅 Refactors
+
+- Migrate from canvas to @napi-rs/canvas for improved performance and compatibility ([7d22055](https://github.com/shba007/unascii/commit/7d22055))
+
+### 🏡 Chore
+
+- Update package dependencies and package manager version ([fb34497](https://github.com/shba007/unascii/commit/fb34497))
+- Update @napi-rs/canvas dependency to version 1.0.8 ([42eae3e](https://github.com/shba007/unascii/commit/42eae3e))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.7
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.6...v1.0.7)
