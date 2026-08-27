@@ -55,7 +55,7 @@
     "unascii": "./dist/bin/cli.exe"
   },
   "dependencies": {
-    "@napi-rs/canvas": "1.0.0",
+    "@napi-rs/canvas": "^1.0.8",
     "chalk": "^6.0.0",
     "citty": "^0.2.2",
     "consola": "^3.4.2",
@@ -78,9 +78,5 @@
     "unbuild": "^3.6.1",
     "vitepress": "^1.6.4",
     "vitest": "^4.1.11"
-  },
-  "trustedDependencies": [
-    "canvas",
-    "esbuild"
-  ]
+  }
 }
