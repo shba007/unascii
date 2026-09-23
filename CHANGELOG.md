@@ -1,5 +1,17 @@
 # unascii
 
+## v1.0.13
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.12...v1.0.13)
+
+### 🩹 Fixes
+
+- Update NPM authentication token variable in publish step ([865f780](https://github.com/shba007/unascii/commit/865f780))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.12
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.11...v1.0.12)
