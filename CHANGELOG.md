@@ -1,5 +1,17 @@
 # unascii
 
+## v1.0.9
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.8...v1.0.9)
+
+### 🩹 Fixes
+
+- Update GitHub token secret reference in deploy workflow ([3f5b564](https://github.com/shba007/unascii/commit/3f5b564))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.8
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.7...v1.0.8)
