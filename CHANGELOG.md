@@ -1,5 +1,17 @@
 # unascii
 
+## v1.0.11
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.10...v1.0.11)
+
+### 🩹 Fixes
+
+- Update GitHub token secret reference in release workflow ([dd624d7](https://github.com/shba007/unascii/commit/dd624d7))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.10
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.8...v1.0.10)
