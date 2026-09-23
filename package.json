@@ -2,15 +2,25 @@
   "name": "@shba007/unascii",
   "version": "1.0.7",
   "description": "Print any image in ascii anywhere (browser/cli)",
-  "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
+  "keywords": [],
   "license": "MIT",
+  "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shba007/unascii.git"
   },
-  "keywords": [],
-  "sideEffects": false,
+  "bin": {
+    "unascii": "./bin/unascii.mjs"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
   "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -23,28 +33,12 @@
       "require": "./dist/cli.cjs"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "bin": {
-    "unascii": "./bin/unascii.mjs"
-  },
-  "files": [
-    "dist",
-    "bin"
-  ],
-  "engines": {
-    "node": "^20.15.0 || ^22.11.0",
-    "pnpm": "^9.15.0 || ^10.2.0 || ^11.0.0",
-    "bun": "^1.2.9"
-  },
-  "packageManager": "bun@1.4.0",
   "scripts": {
     "prepare": "husky || true",
     "dev": "dotenvx run -- vitest dev",
     "detect": "gitleaks git --verbose",
-    "lint": "eslint . --fix",
-    "format": "prettier . --write",
+    "lint": "oxlint . --fix",
+    "format": "oxfmt . --write",
     "test:types": "tsc --noEmit --skipLibCheck",
     "test": "bun lint && bun test:types && dotenvx run -- vitest run --coverage",
     "play": "dotenvx run -- jiti examples",
@@ -55,7 +49,7 @@
     "unascii": "./dist/bin/cli.exe"
   },
   "dependencies": {
-    "@napi-rs/canvas": "^1.0.8",
+    "@napi-rs/canvas": "^1.0.9",
     "chalk": "^6.0.0",
     "citty": "^0.2.2",
     "consola": "^3.4.2",
@@ -64,19 +58,24 @@
     "unstorage": "^1.17.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/config-conventional": "^21.2.2",
-    "@dotenvx/dotenvx": "^2.21.0",
-    "@types/node": "^26.4.0",
-    "@vitest/coverage-v8": "^4.1.11",
-    "eslint": "^10.9.1",
-    "eslint-config-unjs": "^0.6.2",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@dotenvx/dotenvx": "^2.30.0",
+    "@types/node": "26.6.2",
+    "@vitest/coverage-v8": "^5.0.1",
     "husky": "^9.1.7",
     "jiti": "^2.7.0",
-    "prettier": "^3.9.6",
-    "typescript": "^6.0.3",
+    "oxfmt": "0.70.0",
+    "oxlint": "1.85.0",
+    "typescript": "6.0.3",
     "unbuild": "^3.6.1",
     "vitepress": "^1.6.4",
-    "vitest": "^4.1.11"
-  }
+    "vitest": "^5.0.1"
+  },
+  "engines": {
+    "bun": "^1.2.9",
+    "node": "^20.15.0 || ^22.11.0",
+    "pnpm": "^9.15.0 || ^10.2.0 || ^11.0.0"
+  },
+  "packageManager": "bun@1.4.2"
 }

@@ -1,117 +1,167 @@
-import { runtime, env } from 'std-env'
-import { type OutputType, Print, PrintOptions } from './types'
-import { ASCIICharacterSet, asciiCharacterSet, rgbToHex } from './utils'
+import { env, runtime } from 'std-env';
+import type { Print, PrintOptions } from './types';
+import { type OutputType } from './types';
+import type { ASCIICharacterSet } from './utils';
+import { asciiCharacterSet, rgbToHex } from './utils';
 
-let createCanvas: (width: number, height: number) => HTMLCanvasElement
-let loadImage: (url: string) => Promise<HTMLImageElement>
-let colorizer: (color: string, char: string, output?: OutputType) => string
+let colorizer: (color: string, char: string, output?: OutputType) => string,
+  createCanvas: (width: number, height: number) => HTMLCanvasElement,
+  loadImage: (url: string) => Promise<HTMLImageElement>;
 
 async function loadFunctions() {
   if (runtime === '') {
     function createCanvasBrowser(width: number, height: number) {
-      const canvas = document.createElement('canvas')
-      canvas.width = width
-      canvas.height = height
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
 
-      return canvas
+      return canvas;
     }
     async function loadImageBrowser(url: string): Promise<HTMLImageElement> {
       return new Promise((resolve) => {
-        const image = new Image()
-        image.crossOrigin = 'anonymous'
-        image.addEventListener('load', () => resolve(image))
+        const image = new Image();
+        image.crossOrigin = 'anonymous';
+        image.addEventListener('load', () => resolve(image));
 
-        image.src = url
-      })
+        image.src = url;
+      });
     }
 
-    createCanvas = createCanvasBrowser
-    loadImage = loadImageBrowser
-    colorizer = (color, char, output) => (output === 'console' ? char : `<span style="color: ${color}">${char}</span>`)
+    createCanvas = createCanvasBrowser;
+    loadImage = loadImageBrowser;
+    colorizer = (color, char, output) =>
+      output === 'console' ? char : `<span style="color: ${color}">${char}</span>`;
   } else {
     try {
-      const { createCanvas: createCanvasNode, loadImage: loadImageNode } = await import('@napi-rs/canvas')
-      const { Chalk } = await import('chalk')
+      const { createCanvas: createCanvasNode, loadImage: loadImageNode } =
+          await import('@napi-rs/canvas'),
+        { Chalk } = await import('chalk');
 
-      createCanvas = createCanvasNode as unknown as typeof createCanvas
-      loadImage = loadImageNode as unknown as typeof loadImage
+      createCanvas = createCanvasNode as unknown as typeof createCanvas;
+      loadImage = loadImageNode as unknown as typeof loadImage;
 
-      const chalk = new Chalk()
-      colorizer = (color, char, output) => (output === 'console' ? chalk.hex(color)(char) : char)
+      const chalk = new Chalk();
+      colorizer = (color, char, output) => (output === 'console' ? chalk.hex(color)(char) : char);
     } catch {
-      throw new Error('Unable to import canvas/chalk modules')
+      throw new Error('Unable to import canvas/chalk modules');
     }
   }
 }
 
-function getAsciiChar(grayscale: number, widthScale: number, characterSet: ASCIICharacterSet): string {
-  const chars = asciiCharacterSet[characterSet] + ' '.repeat(widthScale)
-  const index = Math.floor((grayscale * (chars.length - 1)) / 255)
-  return chars[index]
+function getAsciiChar(
+  grayscale: number,
+  widthScale: number,
+  characterSet: ASCIICharacterSet,
+): string {
+  const chars = asciiCharacterSet[characterSet] + ' '.repeat(widthScale),
+    index = Math.floor((grayscale * (chars.length - 1)) / 255);
+  return chars[index];
 }
 
-function imageDataToASCII(imageData: ImageData, widthScale: number, characterSet: ASCIICharacterSet, isGrayscale: boolean, outputType: OutputType): string {
-  let ascii = ''
-  const { width, height, data } = imageData
+function imageDataToASCII(
+  imageData: ImageData,
+  widthScale: number,
+  characterSet: ASCIICharacterSet,
+  isGrayscale: boolean,
+  outputType: OutputType,
+): string {
+  let ascii = '';
+  const { width, height, data } = imageData;
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
-      const i = (y * width + x) * 4
-      const r = data[i]
-      const g = data[i + 1]
-      const b = data[i + 2]
-      const a = data[i + 3]
+      const i = (y * width + x) * 4,
+        r = data[i],
+        g = data[i + 1],
+        b = data[i + 2],
+        a = data[i + 3];
 
       if (a < 16) {
-        ascii += ' '
-        continue
+        ascii += ' ';
+        continue;
       }
 
-      const brightness = 0.3 * r + 0.59 * g + 0.11 * b
-      let char = getAsciiChar(brightness, widthScale, characterSet)
+      const brightness = 0.3 * r + 0.59 * g + 0.11 * b;
+      let char = getAsciiChar(brightness, widthScale, characterSet);
 
       if (!isGrayscale) {
-        const hexColor = rgbToHex({ r, g, b })
-        char = colorizer(hexColor, char, outputType)
+        const hexColor = rgbToHex({ b, g, r });
+        char = colorizer(hexColor, char, outputType);
       }
 
-      ascii += char
+      ascii += char;
     }
-    ascii += '\n'
+    ascii += '\n';
   }
 
-  return ascii
+  return ascii;
 }
 
-async function imagePathToASCII(imagePath: string, width: number, widthSkew: number, widthScale: number, characterSet: ASCIICharacterSet, isGrayscale: boolean, outputType: OutputType) {
-  if (env.DEBUG) console.time('loadImage')
-  const image = await loadImage(imagePath)
-  if (env.DEBUG) console.timeEnd('loadImage')
-  const aspectRatio = image.width / image.height
-  const canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio))
+async function imagePathToASCII(
+  imagePath: string,
+  width: number,
+  widthSkew: number,
+  widthScale: number,
+  characterSet: ASCIICharacterSet,
+  isGrayscale: boolean,
+  outputType: OutputType,
+) {
+  if (env.DEBUG) {
+    console.time('loadImage');
+  }
+  const image = await loadImage(imagePath);
+  if (env.DEBUG) {
+    console.timeEnd('loadImage');
+  }
+  const aspectRatio = image.width / image.height,
+    canvas = createCanvas(width * widthSkew, Math.floor(width / aspectRatio)),
+    ctx = canvas.getContext('2d');
+  if (!ctx) {
+    throw new Error('Canvas Context Undefined');
+  }
+  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-  const ctx = canvas.getContext('2d')
-  if (!ctx) throw new Error('Canvas Context Undefined')
-  ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+  if (env.DEBUG) {
+    console.time('imageDataToASCII');
+  }
+  const data = imageDataToASCII(imageData, widthScale, characterSet, isGrayscale, outputType);
+  if (env.DEBUG) {
+    console.timeEnd('imageDataToASCII');
+  }
 
-  if (env.DEBUG) console.time('imageDataToASCII')
-  const data = imageDataToASCII(imageData, widthScale, characterSet, isGrayscale, outputType)
-  if (env.DEBUG) console.timeEnd('imageDataToASCII')
-
-  return data
+  return data;
 }
 
 export async function asciiPrint(imagePath: string, opts?: PrintOptions): Promise<Print> {
-  const { width = 32, widthSkew = 1.75, widthScale = 1, output = 'console', characters = 'alphanumeric', grayscale = false } = opts ?? {}
-  await loadFunctions()
+  const {
+    width = 32,
+    widthSkew = 1.75,
+    widthScale = 1,
+    output = 'console',
+    characters = 'alphanumeric',
+    grayscale = false,
+  } = opts ?? {};
+  await loadFunctions();
 
-  if (env.DEBUG) console.time('imagePathToASCII')
-  const image = imagePathToASCII(imagePath, width, widthSkew, widthScale, characters, grayscale, output)
-  if (env.DEBUG) console.timeEnd('imagePathToASCII')
+  if (env.DEBUG) {
+    console.time('imagePathToASCII');
+  }
+  const image = imagePathToASCII(
+    imagePath,
+    width,
+    widthSkew,
+    widthScale,
+    characters,
+    grayscale,
+    output,
+  );
+  if (env.DEBUG) {
+    console.timeEnd('imagePathToASCII');
+  }
 
   return {
     getImage: async () => image,
-  }
+  };
 }
-export { type OutputType } from './types'
+export { type OutputType } from './types';

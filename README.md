@@ -65,19 +65,19 @@ Import:
 **ESM** (Node.js, Bun)
 
 ```js
-import { asciiPrint } from '@shba007/unascii'
+import { asciiPrint } from '@shba007/unascii';
 ```
 
 **CommonJS** (Legacy Node.js)
 
 ```js
-const { asciiPrint } = require('@shba007/unascii')
+const { asciiPrint } = require('@shba007/unascii');
 ```
 
 **CDN** (Deno, Bun and Browsers)
 
 ```js
-import { asciiPrint } from 'https://esm.sh/@shba007/unascii'
+import { asciiPrint } from 'https://esm.sh/@shba007/unascii';
 ```
 
 ## Development

@@ -14,10 +14,10 @@ else
 fi
 
 # Lint the staged files
-bun lint $STAGED_FILES
+bun oxlint $STAGED_FILES --fix
 
 # Format the staged files, ignoring unknown files
-bun format $STAGED_FILES --ignore-unknown
+bun oxfmt $STAGED_FILES --ignore-path=.oxfmtignore
 
 # Update the index to mark the changes in the staged files
 git update-index --again

@@ -3,6 +3,9 @@ dist
 bin
 !bin/unascii.mjs
 
+# Stray compiled build artifacts left in src/ (unbuild outputs to dist/)
+src/**/*.js
+
 # Node dependencies
 node_modules
 
