@@ -105,7 +105,7 @@ jobs:
       - name: ⚙️ Upload Artifact
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GH_TOKEN }}
           file: dist/bin/cli${{ matrix.ext }}
           asset_name: unstack_${{ env.VERSION }}_${{ matrix.name }}${{ matrix.ext }}
           tag: ${{ env.VERSION }}
