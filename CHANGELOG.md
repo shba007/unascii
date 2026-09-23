@@ -1,5 +1,17 @@
 # unascii
 
+## v1.0.12
+
+[compare changes](https://github.com/shba007/unascii/compare/v1.0.11...v1.0.12)
+
+### 🩹 Fixes
+
+- Update token reference for GitHub package registry ([d367d83](https://github.com/shba007/unascii/commit/d367d83))
+
+### ❤️ Contributors
+
+- Shirsendu Bairagi ([@shba007](https://github.com/shba007))
+
 ## v1.0.11
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.10...v1.0.11)
