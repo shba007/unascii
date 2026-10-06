@@ -1,5 +1,20 @@
 # unascii
 
+## v1.0.14
+
+### 🩹 Fixes
+
+- Update dependencies and configuration for improved compatibility ([0fc1e66](https://github.com/shba007/unascii/commit/0fc1e66))
+
+### 🏡 Chore
+
+- Apply code fixes [skip ci] ([0a441b1](https://github.com/shba007/unascii/commit/0a441b1))
+
+### ❤️ Contributors
+
+- Shba007
+- Shirsendu Bairagi <shirsendu2001@gmail.com>
+
 ## v1.0.13
 
 [compare changes](https://github.com/shba007/unascii/compare/v1.0.12...v1.0.13)
