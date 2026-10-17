@@ -49,7 +49,7 @@
     "unascii": "./dist/bin/cli.exe"
   },
   "dependencies": {
-    "@napi-rs/canvas": "^1.0.10",
+    "@napi-rs/canvas": "^1.0.11",
     "chalk": "^6.0.1",
     "citty": "^0.2.2",
     "consola": "^3.4.2",
@@ -60,22 +60,22 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@dotenvx/dotenvx": "^2.33.0",
-    "@types/node": "26.6.2",
-    "@vitest/coverage-v8": "^5.0.3",
+    "@dotenvx/dotenvx": "^2.35.0",
+    "@types/node": "26.6.5",
+    "@vitest/coverage-v8": "^5.0.4",
     "husky": "^9.1.7",
     "jiti": "^2.7.0",
-    "oxfmt": "0.70.0",
-    "oxlint": "1.85.0",
+    "oxfmt": "0.73.0",
+    "oxlint": "1.88.0",
     "typescript": "6.0.3",
     "unbuild": "^3.6.1",
     "vitepress": "^1.6.4",
-    "vitest": "^5.0.3"
+    "vitest": "^5.0.4"
   },
   "engines": {
-    "bun": "^1.2.9",
+    "bun": "^1.4.3",
     "node": "^20.15.0 || ^22.11.0",
     "pnpm": "^9.15.0 || ^10.2.0 || ^11.0.0"
   },
-  "packageManager": "bun@1.4.2"
+  "packageManager": "bun@1.4.3"
 }
